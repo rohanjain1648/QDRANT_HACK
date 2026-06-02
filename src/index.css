@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Palette - Calming Teal */
+    --primary: 168 76% 36%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary - Sage Green */
+    --secondary: 150 30% 90%;
+    --secondary-foreground: 150 40% 25%;
+    
+    /* Accent - Soft Lavender */
+    --accent: 270 40% 92%;
+    --accent-foreground: 270 50% 30%;
+    
+    /* Background - Warm Off-white */
+    --background: 40 30% 98%;
+    --foreground: 220 20% 20%;
+    
+    /* Cards with glassmorphism */
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 20%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 20%;
+    
+    /* Muted tones */
+    --muted: 150 20% 94%;
+    --muted-foreground: 220 10% 50%;
+    
+    /* Destructive - Soft coral */
+    --destructive: 0 65% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Borders and inputs */
+    --border: 150 20% 88%;
+    --input: 150 20% 88%;
+    --ring: 168 76% 36%;
+    
+    --radius: 1rem;
+    
+    /* Custom wellness colors */
+    --wellness-teal: 168 76% 36%;
+    --wellness-sage: 150 30% 70%;
+    --wellness-lavender: 270 40% 80%;
+    --wellness-peach: 20 80% 85%;
+    --wellness-sky: 200 80% 85%;
+    --wellness-mint: 160 50% 85%;
+    
+    /* Breathing animation colors */
+    --breath-inhale: 200 80% 60%;
+    --breath-hold: 160 60% 50%;
+    --breath-exhale: 270 50% 60%;
+    
+    /* Gradients */
+    --gradient-calm: linear-gradient(135deg, hsl(168 76% 36% / 0.1), hsl(270 40% 80% / 0.2));
+    --gradient-hero: linear-gradient(180deg, hsl(168 76% 36% / 0.05) 0%, hsl(270 40% 80% / 0.1) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100% / 0.9), hsl(0 0% 100% / 0.7));
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(220 20% 20% / 0.08);
+    --shadow-glow: 0 0 40px -10px hsl(168 76% 36% / 0.3);
+    --shadow-card: 0 8px 32px -8px hsl(220 20% 20% / 0.1);
+    
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 220 20% 30%;
+    --sidebar-primary: 168 76% 36%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 150 20% 94%;
+    --sidebar-accent-foreground: 220 20% 30%;
+    --sidebar-border: 150 20% 88%;
+    --sidebar-ring: 168 76% 36%;
+  }
+
+  .dark {
+    --primary: 168 70% 45%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 150 25% 20%;
+    --secondary-foreground: 150 30% 85%;
+    
+    --accent: 270 30% 25%;
+    --accent-foreground: 270 40% 90%;
+    
+    --background: 220 25% 10%;
+    --foreground: 220 15% 90%;
+    
+    --card: 220 25% 14%;
+    --card-foreground: 220 15% 90%;
+    
+    --popover: 220 25% 14%;
+    --popover-foreground: 220 15% 90%;
+    
+    --muted: 220 20% 18%;
+    --muted-foreground: 220 15% 60%;
+    
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 168 70% 45%;
+    
+    --wellness-teal: 168 70% 45%;
+    --wellness-sage: 150 25% 40%;
+    --wellness-lavender: 270 30% 50%;
+    
+    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
+    --shadow-glow: 0 0 40px -10px hsl(168 70% 45% / 0.4);
+    --shadow-card: 0 8px 32px -8px hsl(0 0% 0% / 0.4);
+    
+    --sidebar-background: 220 25% 12%;
+    --sidebar-foreground: 220 15% 85%;
+    --sidebar-primary: 168 70% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 20% 18%;
+    --sidebar-accent-foreground: 220 15% 85%;
+    --sidebar-border: 220 20% 20%;
+    --sidebar-ring: 168 70% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Glassmorphism card */
+  .glass-card {
+    @apply bg-white/70 dark:bg-card/70 backdrop-blur-xl border border-white/20 dark:border-white/10;
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Breathing animation */
+  .breathing-glow {
+    animation: breathingGlow 4s ease-in-out infinite;
+  }
+
+  /* Floating animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Pulse glow */
+  .pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--wellness-lavender)));
+  }
+
+  /* Soft button */
+  .btn-wellness {
+    @apply px-6 py-3 rounded-full font-medium transition-all duration-300;
+    @apply bg-primary text-primary-foreground;
+    @apply hover:shadow-lg hover:scale-105;
+    @apply active:scale-95;
+  }
+
+  .btn-wellness-outline {
+    @apply px-6 py-3 rounded-full font-medium transition-all duration-300;
+    @apply border-2 border-primary text-primary bg-transparent;
+    @apply hover:bg-primary hover:text-primary-foreground;
+    @apply active:scale-95;
+  }
+
+  /* Navigation link */
+  .nav-link {
+    @apply relative px-4 py-2 text-muted-foreground transition-colors duration-300;
+    @apply hover:text-foreground;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute bottom-0 left-1/2 w-0 h-0.5 bg-primary;
+    @apply transition-all duration-300 -translate-x-1/2;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    @apply w-full;
+  }
+
+  /* Game card */
+  .game-card {
+    @apply glass-card rounded-2xl p-6 transition-all duration-300;
+    @apply hover:shadow-lg hover:-translate-y-1;
+  }
+
+  /* Yoga pose card */
+  .pose-card {
+    @apply glass-card rounded-2xl overflow-hidden transition-all duration-500;
+    @apply hover:shadow-lg hover:scale-[1.02];
+  }
+}
+
+@layer utilities {
+  /* Custom animations */
+  @keyframes breathingGlow {
+    0%, 100% {
+      box-shadow: 0 0 20px 0px hsl(var(--breath-inhale) / 0.3);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 0 60px 10px hsl(var(--breath-exhale) / 0.5);
+      transform: scale(1.1);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.5s ease-out forwards;
+  }
+
+  /* Stagger animation delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+}
