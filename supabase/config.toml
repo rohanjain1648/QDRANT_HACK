@@ -1,0 +1,37 @@
+project_id = "ppjjfkudiobzznmijmzx"
+
+[functions.memory-decay]
+verify_jwt = false
+
+[functions.evidence-trail]
+verify_jwt = false
+
+[functions.voice-journal]
+verify_jwt = false
+
+[functions.crisis-detection]
+verify_jwt = false
+
+[functions.context-chains]
+verify_jwt = false
+
+[functions.clip-embed]
+verify_jwt = false
+
+[functions.pose-image-search]
+verify_jwt = false
+
+[functions.pose-comparison]
+verify_jwt = false
+
+[functions.pose-recommendations]
+verify_jwt = false
+
+[functions.contradiction-detection]
+verify_jwt = false
+
+[functions.temporal-patterns]
+verify_jwt = false
+
+[functions.multi-agent-wellness]
+verify_jwt = false
